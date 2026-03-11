@@ -4,7 +4,11 @@
 
 Built with Rust + Tauri + SvelteKit. Uses [llama.cpp](https://github.com/ggml-org/llama.cpp) under the hood. Powered by [Qwen's 3.5 Series](https://huggingface.co/collections/Qwen/qwen35)
 
-<video src="./screenshots/demo.mp4" controls width="100%"></video>
+
+
+https://github.com/user-attachments/assets/ab075e26-8777-45bf-abe9-2d06e9fba879
+
+
 
 
 <p align="center">
