@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/fonts/Geist-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/fonts/GeistMono-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+:root {
+    font-family: 'Geist' sans-serif;
+    background: #0a0a0f;
+    color: #e2e2e8;
+}
+
+@theme {
+    --font-sans: 'Geist', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --color-bg:     #0a0a0f;
+    --color-surface: #0f0f17;
+    --color-border: #1a1a2e;
+    --color-text: #e2e2e8;
+    --color-dim: #4a4a6a;
+    --color-accent: #6366f1;
+}
+
+
+/* Fix Scrollbars */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    {
+      "identifier": "shell:allow-spawn",
+      "allow": [
+        {
+          "name": "llama-server",
+          "sidecar": true,
+          "args": [
+            "-m",
+            {
+              "validator": ".+"
+            },
+            "-c",
+            {
+              "validator": "^\\d+$"
+            },
+            "--n-gpu-layers",
+            {
+              "validator": "^\\d+$"
+            }
+          ]
+        }
+      ]
+    },
+    "shell:allow-kill",
+    "core:window:allow-show",
+    "log:default"
+  ]
+}
