@@ -4,7 +4,14 @@
 
 Built with Rust + Tauri + SvelteKit. Uses [llama.cpp](https://github.com/ggml-org/llama.cpp) under the hood. Powered by [Qwen's 3.5 Series](https://huggingface.co/collections/Qwen/qwen35)
 
-![recursio chat](./screenshots/chat.png)
+<video src="./screenshots/demo.mp4" controls width="100%"></video>
+
+
+<p align="center">
+    <img src="./screenshots/screenshot_03.png" width="32%">
+    <img src="./screenshots/screenshot_01.png" width="32%">
+     <img src="./screenshots/screenshot_02.png" width="32%">
+</p>
 
 ---
 
