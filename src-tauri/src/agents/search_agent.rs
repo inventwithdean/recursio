@@ -49,7 +49,10 @@ async fn fetch_candidates(
         None => return Err(anyhow!("Browser not available")),
     };
 
-    let page = browser.new_page(&search_url).await?;
+    let page = browser.new_page("about:blank").await?;
+    page.wait_for_navigation().await?;
+    page.enable_stealth_mode().await?;
+    page.goto(&search_url).await?;
     page.wait_for_navigation().await?;
     tokio::time::sleep(Duration::from_millis(800)).await;
 
@@ -279,7 +282,11 @@ pub async fn run(
         };
 
         let page = match browser.new_page(&candidate.url).await {
-            Ok(p) => p,
+            Ok(p) => {
+                p.wait_for_navigation().await?;
+                p.enable_stealth_mode().await?;
+                p
+            }
             Err(e) => {
                 println!("[Search Agent] Failed to open page: {}", e);
                 let _ = app_handle.emit(
@@ -290,15 +297,6 @@ pub async fn run(
             }
         };
 
-        if let Err(e) = page.wait_for_navigation().await {
-            println!("[SearchAgent] Navigation error: {}", e);
-            let _ = app_handle.emit(
-                "search_result_status_change",
-                json!({"search_id": search_id, "result_id": candidate.id, "status": "failed"}),
-            )?;
-            let _ = page.close().await;
-            continue;
-        }
         drop(guard); // Drop the guard
         tokio::time::sleep(Duration::from_millis(800)).await;
 

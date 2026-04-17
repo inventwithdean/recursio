@@ -150,6 +150,7 @@ pub async fn run(app_handle: &AppHandle) -> Result<()> {
                                 Some(b) => match b.new_page(&url).await {
                                     Ok(page) => {
                                         let _ = page.wait_for_navigation().await;
+                                        page.enable_stealth_mode().await?;
                                         tokio::time::sleep(Duration::from_millis(800)).await;
 
                                         match page_agent::run(client, &page, &goal).await {

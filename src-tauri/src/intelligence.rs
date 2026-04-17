@@ -12,7 +12,6 @@ pub enum AgentResponse {
     },
     Error(String),
 }
-// TODO: Implement Streaming Responses when you get AppHandle
 pub async fn query_llm(
     client: &Client,
     messages: &Value,

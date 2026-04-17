@@ -230,7 +230,7 @@ pub async fn ensure_browser(app_handle: &AppHandle) -> Result<()> {
 async fn try_launch_browser(browser_data_dir: &std::path::Path) -> Result<(Browser, Handler)> {
     Browser::launch(
         BrowserConfig::builder()
-            .with_head()
+            // .with_head()
             .user_data_dir(browser_data_dir)
             .arg("--start-maximized")
             .arg("--disable-blink-features=AutomationControlled")
